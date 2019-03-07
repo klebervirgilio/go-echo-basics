@@ -1,0 +1,28 @@
+{{ template "layout.html" .}}
+
+{{ define "subscribe" }}
+<div class="jumbotron">
+  <h1 class="display-4">Mailist</h1>
+  <p class="lead">
+    Subscribe to our amazing mailist.
+  </p>
+</div>
+
+<form class="form-inline" action="/save" method="POST">
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <label class="sr-only" for="full-name">Full Name</label>
+      <input type="text" class="form-control mb-2" id="full-name" name="full-name" placeholder="Jane Doe" value={{ index . "fullName" }}>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="email">E-mail</label>
+      <div class="input-group mb-2">
+        <input type="email" class="form-control" name="email" id="email" placeholder="email@example.com" value={{ index . "email" }}>
+      </div>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2">Subscribe</button>
+    </div>
+  </div>
+</form>
+{{ end }}
