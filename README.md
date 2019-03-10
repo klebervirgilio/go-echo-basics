@@ -22,11 +22,11 @@ TBA
 
 ### Go environment
 
-- GOPATH
+- `go env`
 - Directory structures
 - Go documentation
 
-### Go Dependecy Management
+### Go Packages
 
 ```bash
 go get -u github.com/labstack/echo/...
@@ -34,13 +34,14 @@ go get -u github.com/labstack/echo/...
 
 #### Go Essencials:
 
-- Keywords
-- Syntax and Control Flow
+- Variables and Types
 - Exported vs Unexported names
+- Syntax and Control Flow
+- Arrays, Slices and Maps
 - Functions
-- Array/Slices and Interation
-- Maps
-- Struct
+- Pointers
+- Structs and Interfaces
+- Concurrency
 - Interface
 - Concurrency
   - CSP and message sending
