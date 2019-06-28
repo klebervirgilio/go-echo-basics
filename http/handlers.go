@@ -9,7 +9,6 @@ import (
 
 	"github.com/klebervirgilio/go-echo-basics/config"
 	"github.com/klebervirgilio/go-echo-basics/core"
-	apilayer "github.com/klebervirgilio/go-echo-basics/mailchecker"
 
 	"github.com/labstack/echo"
 )
@@ -21,8 +20,7 @@ type ViewContext map[string]interface{}
 // runs the check in parallel for all subscriptons email found in the database.
 // The handler purposes is to exercise the ability of conditionally use a handler and
 // how Go make it easy to achieve concurrency.
-func checkEmailHandler(repo core.Repository, e *echo.Echo, config *config.Config) echo.HandlerFunc {
-	mailChecker := apilayer.New(config.GetString("mailCheckerURL"))
+func checkEmailHandler(repo core.Repository, e *echo.Echo, mailChecker core.MailChecker, config *config.Config) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		if email := c.Param("email"); email != "" {
 			resp, err := mailChecker.Validate(email)

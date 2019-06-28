@@ -8,10 +8,12 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"github.com/klebervirgilio/go-echo-basics/config"
 	"github.com/klebervirgilio/go-echo-basics/core"
 )
 
-func New(endpoint string) core.MailChecker {
+func New(c *config.Config) core.MailChecker {
+	endpoint := fmt.Sprintf(c.MustGetString("mailChecker.url"), c.MustGetString("mailChecker.accessKey"))
 	return APILayer{endpoint}
 }
 

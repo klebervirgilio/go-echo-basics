@@ -1,5 +1,7 @@
 bindAddr: :4000
-mailCheckerURL: http://apilayer.net/api/check?access_key=%s&smtp=1&format=&email=
+mailChecker:
+  url: http://apilayer.net/api/check?access_key=%s&smtp=1&format=&email=
+  access_key:
 mongo:
   uri: mongodb://mongo_user:mongo_secret@localhost:27017
   collection:
